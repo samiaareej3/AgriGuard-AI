@@ -1,0 +1,32 @@
+# AgriGuard backend runtime dependencies (Python 3.11). Pinned for reproducibility.
+fastapi==0.163.2
+starlette==1.10.0
+uvicorn[standard]==0.54.0
+pydantic==2.14.3
+pydantic_core==2.50.4
+pydantic-settings==2.16.3
+python-dotenv==1.2.4
+python-multipart==0.0.34
+pymongo==4.20.0
+dnspython==2.9.2
+numpy==2.4.6
+pillow==13.0.0
+opencv-python-headless==5.1.0.95
+# Transitive pins captured from the working environment
+annotated-doc==0.0.6
+annotated-types==0.8.0
+anyio==4.16.0
+click==8.5.1
+h11==0.16.0
+httptools==0.9.0
+idna==3.20
+PyYAML==6.0.3
+typing-inspection==0.4.5
+typing_extensions==4.16.0
+watchfiles==1.3.0
+websockets==17.4
+# In-memory pymongo-compatible store used when MONGODB_URI is not configured
+mongomock==4.3.0
+sentinels==1.1.1
+packaging==26.3
+pytz==2026.6

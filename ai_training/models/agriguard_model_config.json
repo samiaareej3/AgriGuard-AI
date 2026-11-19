@@ -1,0 +1,257 @@
+{
+  "model_version": "tomato-mnv2-20261118-1120",
+  "architecture": "MobileNetV2 (ImageNet) + GAP + Dropout(0.3) + Dense softmax",
+  "crop": "tomato",
+  "classes": [
+    "early_blight",
+    "healthy",
+    "late_blight"
+  ],
+  "display_names": {
+    "early_blight": "Early Blight",
+    "healthy": "Healthy",
+    "late_blight": "Late Blight"
+  },
+  "input_size": 224,
+  "preprocessing": "mobilenet_v2",
+  "preprocessing_detail": "EXIF transpose, RGB, center square crop, bilinear resize 224, x/127.5-1",
+  "recommended_confidence_threshold": 0.75,
+  "trained_at": "2026-11-18T11:20:17.316872+00:00",
+  "training": {
+    "epochs_head": 8,
+    "epochs_finetune": 5,
+    "finetune_layers": 30,
+    "batch_size": 32,
+    "seed": 42,
+    "class_weight": {
+      "0": 1.50374531835206,
+      "1": 0.9416593374377016,
+      "2": 0.7855221325507459
+    },
+    "train_seconds": 1084.0,
+    "augmentation": "train only: flip h+v, rotation 0.08, zoom \u00b110%, contrast 0.15, brightness 0.15",
+    "tensorflow_version": "2.21.0",
+    "keras_version": "3.15.1"
+  },
+  "dataset": {
+    "generated_at": "2026-11-18T11:01:04.209948+00:00",
+    "dataset": "PlantVillage (raw/color), tomato subset",
+    "source_url": "https://github.com/spMohanty/PlantVillage-Dataset",
+    "license": "CC BY-SA 3.0 (per Hugging Face dataset card mohanty/PlantVillage)",
+    "citation": "Mohanty, S.P., Hughes, D.P., Salath\u00e9, M. (2016). Using deep learning for image-based plant disease detection. Frontiers in Plant Science 7:1419. doi:10.3389/fpls.2016.01419",
+    "source_folders": {
+      "Tomato___Early_blight": "early_blight",
+      "Tomato___Late_blight": "late_blight",
+      "Tomato___healthy": "healthy"
+    },
+    "total_images": 4500,
+    "images_with_leaf_id": 2918,
+    "groups": 2280,
+    "exact_duplicate_files": 14,
+    "near_duplicate_pairs_merged": 34,
+    "split_method": "StratifiedGroupKFold (seed 42): test=1/7 of groups, val=1/6 of remainder; groups = leaf-map leaf IDs \u222a exact duplicates \u222a dHash Hamming<=3 near-duplicates",
+    "class_counts": {
+      "train": {
+        "early_blight": 712,
+        "late_blight": 1363,
+        "healthy": 1137
+      },
+      "val": {
+        "early_blight": 144,
+        "late_blight": 273,
+        "healthy": 227
+      },
+      "test": {
+        "early_blight": 144,
+        "late_blight": 273,
+        "healthy": 227
+      }
+    },
+    "groups_spanning_splits": 0
+  },
+  "history": {
+    "accuracy": [
+      0.7023661136627197,
+      0.8602117300033569,
+      0.8860523104667664,
+      0.8966376185417175,
+      0.9084682464599609,
+      0.9094022512435913,
+      0.910024881362915,
+      0.9072229266166687,
+      0.9237235188484192,
+      0.9308841824531555,
+      0.9427148103713989,
+      0.953611433506012,
+      0.9495641589164734
+    ],
+    "loss": [
+      0.696915328502655,
+      0.3714701533317566,
+      0.29382506012916565,
+      0.25979098677635193,
+      0.24335291981697083,
+      0.2370065599679947,
+      0.23256686329841614,
+      0.2318129688501358,
+      0.2004704475402832,
+      0.1761966198682785,
+      0.1512083262205124,
+      0.12507301568984985,
+      0.12929944694042206
+    ],
+    "val_accuracy": [
+      0.8773291707038879,
+      0.8649068474769592,
+      0.9037266969680786,
+      0.9301242232322693,
+      0.9347826242446899,
+      0.9332298040390015,
+      0.9347826242446899,
+      0.9363353848457336,
+      0.945652186870575,
+      0.9549689292907715,
+      0.9580745100975037,
+      0.9580745100975037,
+      0.9580745100975037
+    ],
+    "val_loss": [
+      0.32343342900276184,
+      0.33955007791519165,
+      0.24420154094696045,
+      0.1992083042860031,
+      0.19688959419727325,
+      0.18607456982135773,
+      0.1808638870716095,
+      0.17360873520374298,
+      0.14561797678470612,
+      0.11605491489171982,
+      0.10893406718969345,
+      0.10762592405080795,
+      0.11224806308746338
+    ],
+    "stage": [
+      "head",
+      "head",
+      "head",
+      "head",
+      "head",
+      "head",
+      "head",
+      "head",
+      "finetune",
+      "finetune",
+      "finetune",
+      "finetune",
+      "finetune"
+    ]
+  },
+  "metrics": {
+    "evaluated_at": "2026-11-18T11:24:25.802258+00:00",
+    "split": "test (held-out; group-wise split by physical leaf, never used for training or model selection)",
+    "n_test": 644,
+    "accuracy": 0.9689,
+    "macro_precision": 0.966,
+    "macro_recall": 0.9657,
+    "macro_f1": 0.9657,
+    "per_class": {
+      "early_blight": {
+        "precision": 0.9507,
+        "recall": 0.9375,
+        "f1": 0.9441,
+        "support": 144
+      },
+      "healthy": {
+        "precision": 0.966,
+        "recall": 1.0,
+        "f1": 0.9827,
+        "support": 227
+      },
+      "late_blight": {
+        "precision": 0.9813,
+        "recall": 0.9597,
+        "f1": 0.9704,
+        "support": 273
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "early_blight",
+        "healthy",
+        "late_blight"
+      ],
+      "rows_true_cols_pred": [
+        [
+          135,
+          4,
+          5
+        ],
+        [
+          0,
+          227,
+          0
+        ],
+        [
+          7,
+          4,
+          262
+        ]
+      ]
+    },
+    "at_recommended_threshold": {
+      "threshold": 0.75,
+      "coverage": 0.9317,
+      "accuracy_on_confident": 0.985,
+      "routed_to_review": 44
+    },
+    "threshold_sweep": [
+      {
+        "threshold": 0.5,
+        "coverage": 0.9922360248447205,
+        "accuracy_on_confident": 0.97339593114241
+      },
+      {
+        "threshold": 0.6,
+        "coverage": 0.9720496894409938,
+        "accuracy_on_confident": 0.9776357827476039
+      },
+      {
+        "threshold": 0.7,
+        "coverage": 0.9425465838509317,
+        "accuracy_on_confident": 0.985172981878089
+      },
+      {
+        "threshold": 0.75,
+        "coverage": 0.9316770186335404,
+        "accuracy_on_confident": 0.985
+      },
+      {
+        "threshold": 0.8,
+        "coverage": 0.9177018633540373,
+        "accuracy_on_confident": 0.9898477157360406
+      },
+      {
+        "threshold": 0.85,
+        "coverage": 0.8881987577639752,
+        "accuracy_on_confident": 0.9912587412587412
+      },
+      {
+        "threshold": 0.9,
+        "coverage": 0.8385093167701864,
+        "accuracy_on_confident": 0.9962962962962963
+      },
+      {
+        "threshold": 0.95,
+        "coverage": 0.7732919254658385,
+        "accuracy_on_confident": 0.9959839357429718
+      }
+    ],
+    "inference_time": {
+      "device": "CPU (Intel i7-8550U laptop), TensorFlow 2.21.0",
+      "single_image_ms_mean": 184.8,
+      "single_image_ms_p95": 226.9,
+      "batch32_throughput_img_per_s": 39.3
+    },
+    "caveat": "PlantVillage images are lab photos (single leaf, plain background). Accuracy on field photographs is expected to be lower and has NOT been measured."
+  }
+}

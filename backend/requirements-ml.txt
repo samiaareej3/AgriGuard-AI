@@ -1,0 +1,5 @@
+# Optional: enables real model inference in the API (without it, scans return
+# MODEL_UNAVAILABLE -> REVIEW_REQUIRED). CPU build; ~600 MB download.
+-r requirements.txt
+tensorflow==2.21.0
+keras==3.15.1

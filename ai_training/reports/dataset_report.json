@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-11-18T11:01:04.209948+00:00",
+  "dataset": "PlantVillage (raw/color), tomato subset",
+  "source_url": "https://github.com/spMohanty/PlantVillage-Dataset",
+  "license": "CC BY-SA 3.0 (per Hugging Face dataset card mohanty/PlantVillage)",
+  "citation": "Mohanty, S.P., Hughes, D.P., Salath\u00e9, M. (2016). Using deep learning for image-based plant disease detection. Frontiers in Plant Science 7:1419. doi:10.3389/fpls.2016.01419",
+  "source_folders": {
+    "Tomato___Early_blight": "early_blight",
+    "Tomato___Late_blight": "late_blight",
+    "Tomato___healthy": "healthy"
+  },
+  "total_images": 4500,
+  "images_with_leaf_id": 2918,
+  "groups": 2280,
+  "exact_duplicate_files": 14,
+  "near_duplicate_pairs_merged": 34,
+  "split_method": "StratifiedGroupKFold (seed 42): test=1/7 of groups, val=1/6 of remainder; groups = leaf-map leaf IDs \u222a exact duplicates \u222a dHash Hamming<=3 near-duplicates",
+  "class_counts": {
+    "train": {
+      "early_blight": 712,
+      "late_blight": 1363,
+      "healthy": 1137
+    },
+    "val": {
+      "early_blight": 144,
+      "late_blight": 273,
+      "healthy": 227
+    },
+    "test": {
+      "early_blight": 144,
+      "late_blight": 273,
+      "healthy": 227
+    }
+  },
+  "groups_spanning_splits": 0
+}

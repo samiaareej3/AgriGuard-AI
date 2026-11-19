@@ -1,0 +1,146 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * AgriGuard design tokens.
+ * UI brand: deep field green on a warm-neutral base. Status colours (good /
+ * warning / serious / critical) are reserved for state and always paired with
+ * an icon + label. Chart series use a validated categorical palette
+ * (dataviz reference palette; CVD-checked in light and dark).
+ */
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.985 0.004 106);
+  --foreground: oklch(0.2 0.015 150);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.015 150);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.015 150);
+  --primary: oklch(0.45 0.11 152);
+  --primary-foreground: oklch(0.985 0.01 150);
+  --secondary: oklch(0.955 0.012 140);
+  --secondary-foreground: oklch(0.27 0.04 152);
+  --muted: oklch(0.955 0.008 110);
+  --muted-foreground: oklch(0.48 0.02 140);
+  --accent: oklch(0.94 0.03 145);
+  --accent-foreground: oklch(0.27 0.05 152);
+  --destructive: oklch(0.55 0.2 27);
+  --border: oklch(0.91 0.01 120);
+  --input: oklch(0.89 0.012 120);
+  --ring: oklch(0.55 0.12 152);
+  --sidebar: oklch(0.21 0.03 158);
+  --sidebar-foreground: oklch(0.93 0.015 150);
+  --sidebar-muted: oklch(0.68 0.03 150);
+  --sidebar-accent: oklch(0.28 0.04 158);
+  --sidebar-border: oklch(0.3 0.03 158);
+
+  /* status (reserved) */
+  --good: #0ca30c;
+  --warning: #fab219;
+  --serious: #ec835a;
+  --critical: #d03b3b;
+  --sim: oklch(0.55 0.15 290);
+
+  /* chart chrome + validated series (light) */
+  --chart-surface: #fcfcfb;
+  --chart-grid: #e7e6e2;
+  --chart-axis: #6b6a64;
+  --series-healthy: #1baf7a;
+  --series-early: #eb6834;
+  --series-late: #2a78d6;
+  --series-unclassified: #9a9993;
+}
+
+.dark {
+  --background: oklch(0.17 0.012 160);
+  --foreground: oklch(0.94 0.01 140);
+  --card: oklch(0.205 0.014 160);
+  --card-foreground: oklch(0.94 0.01 140);
+  --popover: oklch(0.22 0.014 160);
+  --popover-foreground: oklch(0.94 0.01 140);
+  --primary: oklch(0.7 0.14 150);
+  --primary-foreground: oklch(0.18 0.03 155);
+  --secondary: oklch(0.26 0.02 160);
+  --secondary-foreground: oklch(0.92 0.01 140);
+  --muted: oklch(0.25 0.015 160);
+  --muted-foreground: oklch(0.7 0.02 140);
+  --accent: oklch(0.28 0.03 155);
+  --accent-foreground: oklch(0.94 0.02 140);
+  --destructive: oklch(0.62 0.2 25);
+  --border: oklch(0.3 0.015 160);
+  --input: oklch(0.32 0.015 160);
+  --ring: oklch(0.6 0.12 150);
+  --sidebar: oklch(0.15 0.015 160);
+  --sidebar-foreground: oklch(0.92 0.015 150);
+  --sidebar-muted: oklch(0.62 0.03 150);
+  --sidebar-accent: oklch(0.23 0.025 158);
+  --sidebar-border: oklch(0.25 0.02 158);
+  --sim: oklch(0.72 0.13 290);
+
+  --chart-surface: #1a1a19;
+  --chart-grid: #2e2e2c;
+  --chart-axis: #a9a89f;
+  --series-healthy: #199e70;
+  --series-early: #d95926;
+  --series-late: #3987e5;
+  --series-unclassified: #7d7c76;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-muted: var(--sidebar-muted);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-good: var(--good);
+  --color-warning: var(--warning);
+  --color-serious: var(--serious);
+  --color-critical: var(--critical);
+  --color-sim: var(--sim);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

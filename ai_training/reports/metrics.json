@@ -1,0 +1,108 @@
+{
+  "evaluated_at": "2026-11-18T11:24:25.802258+00:00",
+  "split": "test (held-out; group-wise split by physical leaf, never used for training or model selection)",
+  "n_test": 644,
+  "accuracy": 0.9689,
+  "macro_precision": 0.966,
+  "macro_recall": 0.9657,
+  "macro_f1": 0.9657,
+  "per_class": {
+    "early_blight": {
+      "precision": 0.9507,
+      "recall": 0.9375,
+      "f1": 0.9441,
+      "support": 144
+    },
+    "healthy": {
+      "precision": 0.966,
+      "recall": 1.0,
+      "f1": 0.9827,
+      "support": 227
+    },
+    "late_blight": {
+      "precision": 0.9813,
+      "recall": 0.9597,
+      "f1": 0.9704,
+      "support": 273
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "early_blight",
+      "healthy",
+      "late_blight"
+    ],
+    "rows_true_cols_pred": [
+      [
+        135,
+        4,
+        5
+      ],
+      [
+        0,
+        227,
+        0
+      ],
+      [
+        7,
+        4,
+        262
+      ]
+    ]
+  },
+  "at_recommended_threshold": {
+    "threshold": 0.75,
+    "coverage": 0.9317,
+    "accuracy_on_confident": 0.985,
+    "routed_to_review": 44
+  },
+  "threshold_sweep": [
+    {
+      "threshold": 0.5,
+      "coverage": 0.9922360248447205,
+      "accuracy_on_confident": 0.97339593114241
+    },
+    {
+      "threshold": 0.6,
+      "coverage": 0.9720496894409938,
+      "accuracy_on_confident": 0.9776357827476039
+    },
+    {
+      "threshold": 0.7,
+      "coverage": 0.9425465838509317,
+      "accuracy_on_confident": 0.985172981878089
+    },
+    {
+      "threshold": 0.75,
+      "coverage": 0.9316770186335404,
+      "accuracy_on_confident": 0.985
+    },
+    {
+      "threshold": 0.8,
+      "coverage": 0.9177018633540373,
+      "accuracy_on_confident": 0.9898477157360406
+    },
+    {
+      "threshold": 0.85,
+      "coverage": 0.8881987577639752,
+      "accuracy_on_confident": 0.9912587412587412
+    },
+    {
+      "threshold": 0.9,
+      "coverage": 0.8385093167701864,
+      "accuracy_on_confident": 0.9962962962962963
+    },
+    {
+      "threshold": 0.95,
+      "coverage": 0.7732919254658385,
+      "accuracy_on_confident": 0.9959839357429718
+    }
+  ],
+  "inference_time": {
+    "device": "CPU (Intel i7-8550U laptop), TensorFlow 2.21.0",
+    "single_image_ms_mean": 184.8,
+    "single_image_ms_p95": 226.9,
+    "batch32_throughput_img_per_s": 39.3
+  },
+  "caveat": "PlantVillage images are lab photos (single leaf, plain background). Accuracy on field photographs is expected to be lower and has NOT been measured."
+}
